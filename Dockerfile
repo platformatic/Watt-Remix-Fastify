@@ -15,6 +15,6 @@ RUN npm run build
 ENV PORT=3042
 ENV API_URL=http://127.0.0.1:3042/api
 
-EXPOSE 3000
+EXPOSE 3042
 
 CMD ["npm", "run", "dev"]

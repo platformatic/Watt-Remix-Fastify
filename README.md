@@ -38,10 +38,18 @@ npm install
 npm run build
 ```
 
-
 Start the development server:
 ```sh
 npm run dev
+```
+
+### Docker 
+
+Build and run the application using docker 
+
+```sh
+docker build -t watt-fastify-remix .
+docker run -p 3042:3042 watt-fastify-remix
 ```
 
 ### Database Setup
