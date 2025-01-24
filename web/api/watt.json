@@ -1,0 +1,9 @@
+{
+  "$schema": "https://schemas.platformatic.dev/@platformatic/node/2.37.1.json",
+  "application": {
+    "basePath": "/api"
+  },
+  "node": {
+    "main": "server.js"
+  }
+}

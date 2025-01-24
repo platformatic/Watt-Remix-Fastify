@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.platformatic.dev/@platformatic/composer/2.38.0.json",
+  "composer": {
+    "services": [
+      {
+        "id": "api",
+        "proxy": {
+          "prefix": "/api"
+        }
+      },
+      {
+        "id": "remix"
+      }
+    ],
+    "refreshTimeout": 1000
+  },
+  "watch": true
+}

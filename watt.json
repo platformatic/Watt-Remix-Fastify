@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.platformatic.dev/wattpm/2.37.0.json",
+  "server": {
+    "hostname": "127.0.0.1",
+    "port": 3042
+  },
+  "logger": {
+    "level": "info"
+  },
+  "autoload": {
+    "path": "web"
+  },
+  "entrypoint": "composer",
+  "web": [
+    {
+      "id": "api",
+      "path": "web/api",
+      "env": {
+        "DATABASE_URL": "{DATABASE_URL}"
+      }
+    }
+  ]
+}
