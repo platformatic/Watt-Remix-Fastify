@@ -2,7 +2,6 @@ import invariant from "tiny-invariant";
 import type { Product } from "../types/product";
 
 const API_URL = process.env.API_URL || "http://api.plt.local";
-console.log(API_URL);
 
 export class ApiError extends Error {
   constructor(public status: number, message: string) {

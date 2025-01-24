@@ -1,7 +1,7 @@
 import { json, type LoaderFunctionArgs } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { getProduct } from "../utils/api.server";
-import type { Product } from "~/types/product";
+import type { Product } from "../types/product";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { id } = params;

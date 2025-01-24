@@ -1,7 +1,7 @@
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { getProducts } from "../utils/api.server";
-import type { Product } from "~/types/product";
+import type { Product } from "../types/product";
 
 export async function loader() {
   try {
@@ -67,7 +67,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="relative h-[850px] rounded-2xl overflow-hidden">
+          <div className="relative h-[700px] rounded-2xl overflow-hidden">
             <img
               src={featuredProduct.image_url || 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7'}
               alt={featuredProduct.name}
