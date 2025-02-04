@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@platformatic/composer": "^2.38.0",
-    "wattpm": "^2.37.0"
+    "wattpm": "^2.44.0"
   },
   "workspaces": [
     "web/*",
