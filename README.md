@@ -63,5 +63,8 @@ npx wattpm admin
 6. Run the test script to simulate some traffic:
 
 ```sh
-./test.sh
+autocannon http://127.0.0.1:3042/products
+autocannon http://127.0.0.1:3042/products/1
+autocannon http://127.0.0.1:3042/products/2
+autocannon http://127.0.0.1:3042/products/3
 ```
