@@ -50,8 +50,13 @@ npm run dev
 npm run build
 ```
 
-
 4. Start the production server:
 ```sh
 npm run dev
+```
+
+5. To see the Watt metrics, run the following command:
+
+```sh
+npx wattpm admin
 ```
