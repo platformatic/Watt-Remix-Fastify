@@ -52,7 +52,7 @@ npm run build
 
 4. Start the production server:
 ```sh
-npm run dev
+npm run start
 ```
 
 5. To see the Watt metrics, run the following command:
