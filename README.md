@@ -60,3 +60,8 @@ npm run start
 ```sh
 npx wattpm admin
 ```
+6. Run the test script to simulate some traffic:
+
+```sh
+./test.sh
+```
