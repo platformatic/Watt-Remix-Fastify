@@ -19,8 +19,8 @@
     "react-dom": "^18.2.0",
     "tiny-invariant": "^1.3.1",
     "@remix-run/css-bundle": "^2.5.0",
-    "@platformatic/globals": "^2.44.0",
-    "@platformatic/remix": "^2.44.0"
+    "@platformatic/globals": "^2.56.0",
+    "@platformatic/remix": "^2.56.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.15.2",
