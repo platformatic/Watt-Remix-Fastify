@@ -3,8 +3,10 @@
   "private": true,
   "scripts": {
     "dev": "wattpm dev",
+    "watt-install": "wattpm install",
     "build": "wattpm build",
     "start": "wattpm start",
+    "admin": "wattpm admin",
     "postgresql": "docker run --rm --name remix-watt-postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:17-alpine"
   },
   "dependencies": {
