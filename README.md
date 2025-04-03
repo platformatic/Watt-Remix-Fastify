@@ -60,6 +60,7 @@ npm run start
 ```sh
 npx wattpm admin
 ```
+
 6. Run the test script to simulate some traffic:
 
 ```sh
@@ -67,4 +68,10 @@ autocannon http://127.0.0.1:3042/products
 autocannon http://127.0.0.1:3042/products/1
 autocannon http://127.0.0.1:3042/products/2
 autocannon http://127.0.0.1:3042/products/3
+```
+
+## Use the docker compose file to run the application
+
+```sh
+docker compose up --build
 ```

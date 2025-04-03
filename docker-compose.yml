@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: remix-watt-postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: watt-remix-demo
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       cpus: '0.1'
+    #       memory: 512M    
+    #     limits:
+    #       cpus: '0.5'
+    #       memory: 2048M
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/postgres
+    ports:
+      - "3042:3042"
+      - "4042:4042"
+    depends_on:
+      - db
