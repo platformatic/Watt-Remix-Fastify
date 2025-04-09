@@ -1,77 +1,37 @@
-## Watt-Fastify-Remix
+# Remix Fastify E-commerce Demo
 
-A sample product catalog application built with Platformatic Watt, Fastify, and Remix, featuring product listings and featured product highlights.
+This is a simple e-commerce demo using Fastify, PostgreSQL, and Remix.
 
-## Features
-- Product catalog browsing
-- Featured products showcase
-- Single API endpoint integration using [Platformatic Composer](https://platformatic.dev/composer)
-- PostgreSQL database integration
+## Installation
 
-## Tech Stack
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Run `npm run postgresql`
+4. Create a `.env` file with the following content (replace `YOUR_IP` with your IP address):
 
-* [Platformatic Watt](https://platformatic.dev/watt)
-* [Fastify](https://fastify.dev/
-* [Platformatic Composer](https://platformatic.dev/composer)
-* Remix - React-based web framework
-
-## Prerequisites
-
-* Node.js v22
-* PostgreSQL server (for local development)
-
-Start PostgreSQL server:
-```sh
-npm run postgresql
+```
+DATABASE_URL=postgresql://postgres:password@YOUR_IP:5432/fastify_ecommerce
 ```
 
-Then, copy the `.env.example` file to `.env` and update the database connection string.
+### How to get your ip address
 
+Here's the platform-specific breakdown for getting your local IP address:
 
-## Getting Started
+* **Linux/Unix**: Use `ip addr show` for a detailed view of all network interfaces, or for just the IPv4 address, run: `ip -4 addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}'`. The simpler alternative `hostname -I` will also work on most distributions.
+* **macOS**: Use `ifconfig | grep "inet " | grep -v 127.0.0.1` to see all active IPv4 addresses while excluding the loopback interface. For a cleaner output showing just the primary interface, you can use: `ipconfig getifaddr en0` (for Wi-Fi) or `ipconfig getifaddr en1` (for Ethernet).
+* **Windows**: The command `ipconfig` shows all network interfaces and their configurations. For a filtered view showing only IPv4 addresses, use: `ipconfig | findstr /i "IPv4"`. Alternatively, use PowerShell with: `Get-NetIPAddress -AddressFamily IPv4 | Select-Object IPAddress`.
 
-1. Install dependencies:
+## Dev mode
 
+Run `npm run dev` to start the development server.
+It will start the Fastify server and the Remix development server and hot reload things as they are changed on disk
 
-```sh
-npm install
-cd web/remix
-npm install
-```
+## Production mode
 
-2. Start the development server:
-```sh
-npm run dev
-```
+First run `npm run build` to build the Remix app.
+Then run `npm start` to start the Fastify server and the Remix app in production mode.
 
-3. Build the application:
+## Deployment with ICC
 
-```sh
-npm run build
-```
-
-4. Start the production server:
-```sh
-npm run start
-```
-
-5. To see the Watt metrics, run the following command:
-
-```sh
-npx wattpm admin
-```
-
-6. Run the test script to simulate some traffic:
-
-```sh
-autocannon http://127.0.0.1:3042/products
-autocannon http://127.0.0.1:3042/products/1
-autocannon http://127.0.0.1:3042/products/2
-autocannon http://127.0.0.1:3042/products/3
-```
-
-## Use the docker compose file to run the application
-
-```sh
-docker compose up --build
-```
+Deploying this project in ICC requires setting `DATABASE_URL` to an IP address that is accessible from within
+the kubernetes cluster. Loading the `.env` created above would do.
