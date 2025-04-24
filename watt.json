@@ -10,14 +10,5 @@
   "autoload": {
     "path": "web"
   },
-  "entrypoint": "composer",
-  "web": [
-    {
-      "id": "api",
-      "path": "web/api",
-      "env": {
-        "DATABASE_URL": "{DATABASE_URL}"
-      }
-    }
-  ]
+  "entrypoint": "remix"
 }
