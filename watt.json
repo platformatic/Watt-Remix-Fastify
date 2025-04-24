@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.platformatic.dev/wattpm/2.61.0.json",
   "server": {
-    "hostname": "127.0.0.1",
+    "hostname": "0.0.0.0",
     "port": 3042
   },
   "logger": {
@@ -16,5 +16,8 @@
     "workers": 2
   }],
   "metrics": false,
+  "health": {
+    "enabled": false
+  },
   "entrypoint": "remix"
 }

@@ -10,10 +10,13 @@
     "start-api": "node --env-file=.env web/api/server.js",
     "start-remix": "cd web/remix && npm start",
     "start-pm2": "pm2 start --no-daemon pm2.json",
-    "postgresql": "docker run --rm --name remix-watt-postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:17-alpine"
+    "postgresql": "docker run --rm --name remix-watt-postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:17-alpine",
+    "bench-pm2": "autocannon -c 100 -D 2 -d 40 -W [ -c 100 -d 10 ] http://localhost:3001",
+    "bench-watt": "autocannon -c 100 -D 2 -d 40 -W [ -c 100 -d 10 ] http://localhost:3042"
   },
   "dependencies": {
     "@platformatic/composer": "^2.58.0",
+    "autocannon": "^8.0.0",
     "pm2": "^6.0.5",
     "wattpm": "^2.58.0"
   },

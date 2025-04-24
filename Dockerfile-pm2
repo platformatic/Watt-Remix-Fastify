@@ -12,17 +12,10 @@ COPY --parents web/*/package.json .
 
 RUN npm install
 
-COPY watt.json ./
 COPY web ./web
+COPY pm2.json ./
 
-RUN npm run build
+RUN cd web/remix && npm run build
 
-COPY docker-run-all.sh ./
-RUN chmod +x ./docker-run-all.sh
-
-EXPOSE 3042 4042
-
-# CMD [ "./docker-run-all.sh" ]
-
-# EXPOSE 3042
-CMD [ "npm", "start" ]
+EXPOSE 3001
+CMD [ "npx", "pm2", "start", "--no-daemon", "./pm2.json" ]

@@ -13,18 +13,33 @@ services:
       context: .
       dockerfile: Dockerfile
     image: watt-remix-demo
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       cpus: '0.1'
-    #       memory: 512M    
-    #     limits:
-    #       cpus: '0.5'
-    #       memory: 2048M
+    deploy:
+      resources:
+        limits:
+          cpus: 2
+          memory: 4096M
     environment:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/postgres
     ports:
       - "3042:3042"
       - "4042:4042"
+    depends_on:
+      - db
+
+  app2:
+    build: 
+      context: .
+      dockerfile: Dockerfile-pm2
+    image: watt-remix-demo-pm2
+    deploy:
+      resources:
+        limits:
+          cpus: 2
+          memory: 4096M
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/postgres
+      PORT: 3001
+    ports:
+      - "3001:3001"
     depends_on:
       - db

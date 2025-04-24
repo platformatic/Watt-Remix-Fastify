@@ -6,7 +6,7 @@
     "instances": "1",
     "mode"     : "cluster",
     "env": {
-      "DATABASE_URL": "postgresql://postgres:postgres@localhost:5432/postgres",
+      "DATABASE_URL": "postgresql://postgres:postgres@db:5432/postgres",
       "PORT": 3000
     }
   }, {
@@ -16,6 +16,7 @@
     "cwd": "web/remix",
     "env": {
       "API_URL": "http://localhost:3000",
+      "NODE_ENV": "production",
       "PORT": 3001
     }
   }]
