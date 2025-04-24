@@ -11,10 +11,9 @@
     }
   }, {
     "name": "remix",
-    "script"    : "node_modules/.bin/remix-serve",
+    "script"    : "express.cjs",
     "instances" : "2",
     "cwd": "web/remix",
-    "args": "./build/server/index.js",
     "env": {
       "API_URL": "http://localhost:3000",
       "PORT": 3001

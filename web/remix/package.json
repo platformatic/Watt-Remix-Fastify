@@ -11,16 +11,18 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@platformatic/globals": "^2.58.0",
+    "@platformatic/remix": "^2.58.0",
+    "@remix-run/css-bundle": "^2.16.4",
+    "@remix-run/express": "^2.16.4",
     "@remix-run/node": "^2.16.4",
     "@remix-run/react": "^2.16.4",
     "@remix-run/serve": "^2.16.4",
+    "express": "^4.21.2",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tiny-invariant": "^1.3.3",
-    "@remix-run/css-bundle": "^2.16.4",
-    "@platformatic/globals": "^2.58.0",
-    "@platformatic/remix": "^2.58.0"
+    "tiny-invariant": "^1.3.3"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.16.4",
