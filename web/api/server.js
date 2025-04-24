@@ -1,6 +1,7 @@
 import Fastify from "fastify";
 import postgres from "@fastify/postgres";
 import cors from "@fastify/cors";
+import esMain from "es-main";
 
 import Postgrator from "postgrator";
 import path from "path";
@@ -16,31 +17,31 @@ export async function build() {
   await fastify.register(postgres, {
     connectionString: process.env.DATABASE_URL,
   });
-    
-    console.log("DATABASE_URL:", process.env.DATABASE_URL);
 
-const postgrator = new Postgrator({
-  migrationPattern: path.join(__dirname, "./migrations/*"),
-  driver: "pg",
-  validateChecksums: false, 
-  execQuery: async (query) => {
-    const client = await fastify.pg.connect();
-    try {
-      const result = await client.query(query);
-       return result;
-    } finally {
-      client.release();
-    }
-  },
-});
+  console.log("DATABASE_URL:", process.env.DATABASE_URL);
 
-try {
-  const result = await postgrator.migrate();
-  console.log("Migration result:", result);
-} catch (error) {
-  console.error("Detailed migration error:", error);
-  process.exit(1);
-}
+  const postgrator = new Postgrator({
+    migrationPattern: path.join(__dirname, "./migrations/*"),
+    driver: "pg",
+    validateChecksums: false, 
+    execQuery: async (query) => {
+      const client = await fastify.pg.connect();
+      try {
+        const result = await client.query(query);
+        return result;
+      } finally {
+        client.release();
+      }
+    },
+  });
+
+  try {
+    const result = await postgrator.migrate();
+    console.log("Migration result:", result);
+  } catch (error) {
+    console.error("Detailed migration error:", error);
+    process.exit(1);
+  }
 
   fastify.register(cors, {
     origin: true,
@@ -97,4 +98,11 @@ try {
   });
 
   return fastify;
+}
+
+if (esMain(import.meta)) {
+  const fastify = await build();
+  const port = process.env.PORT || 3000;
+  const host = process.env.HOST || '0.0.0.0';
+  await fastify.listen({ port, host })
 }

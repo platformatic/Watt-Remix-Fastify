@@ -21,8 +21,13 @@ async function handleResponse<T>(response: Response): Promise<T> {
 }
 
 export async function getProducts(): Promise<Product[]> {
+  try {
   const response = await fetch(`${API_URL}/products`);
   return handleResponse<Product[]>(response);
+  } catch (error) {
+    console.log(error)
+    throw err
+  }
 }
 
 export async function getProduct(id: string): Promise<Product> {

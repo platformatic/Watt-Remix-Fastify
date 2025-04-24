@@ -1,5 +1,5 @@
 {
-  "$schema": "https://schemas.platformatic.dev/wattpm/2.37.0.json",
+  "$schema": "https://schemas.platformatic.dev/wattpm/2.61.0.json",
   "server": {
     "hostname": "127.0.0.1",
     "port": 3042
@@ -10,5 +10,11 @@
   "autoload": {
     "path": "web"
   },
+  "services": [{
+    "id": "remix",
+    "path": "web/remix",
+    "workers": 2
+  }],
+  "metrics": false,
   "entrypoint": "remix"
 }

@@ -7,10 +7,14 @@
     "build": "wattpm build",
     "start": "wattpm start",
     "admin": "wattpm admin",
+    "start-api": "node --env-file=.env web/api/server.js",
+    "start-remix": "cd web/remix && npm start",
+    "start-pm2": "pm2 start --no-daemon pm2.json",
     "postgresql": "docker run --rm --name remix-watt-postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:17-alpine"
   },
   "dependencies": {
     "@platformatic/composer": "^2.58.0",
+    "pm2": "^6.0.5",
     "wattpm": "^2.58.0"
   },
   "workspaces": [

@@ -1,0 +1,23 @@
+{
+  "apps" : [{
+    "name": "api",
+    "script": "server2.cjs",
+    "cwd": "web/api",
+    "instances": "1",
+    "mode"     : "cluster",
+    "env": {
+      "DATABASE_URL": "postgresql://postgres:postgres@localhost:5432/postgres",
+      "PORT": 3000
+    }
+  }, {
+    "name": "remix",
+    "script"    : "node_modules/.bin/remix-serve",
+    "instances" : "2",
+    "cwd": "web/remix",
+    "args": "./build/server/index.js",
+    "env": {
+      "API_URL": "http://localhost:3000",
+      "PORT": 3001
+    }
+  }]
+}
