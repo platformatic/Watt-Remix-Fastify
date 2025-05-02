@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.14.0-labs
+# syntax=docker/dockerfile:1.15.1-labs
 FROM node:22.14.0-slim
 
 ENV APP_HOME=/home/app
