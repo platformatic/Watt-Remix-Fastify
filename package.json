@@ -10,7 +10,7 @@
     "postgresql": "docker run --rm --name remix-watt-postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:17-alpine"
   },
   "dependencies": {
-    "@platformatic/composer": "^2.58.0",
+    "@platformatic/composer": "^3.0.0",
     "wattpm": "^2.58.0"
   },
   "workspaces": [
