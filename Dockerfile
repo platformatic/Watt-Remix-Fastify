@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.14.0-labs
-FROM node:22.14.0-slim
+FROM node:22.23.2-slim
 
 ENV APP_HOME=/home/app
 
